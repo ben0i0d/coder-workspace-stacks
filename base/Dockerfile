@@ -9,6 +9,9 @@ RUN sed -i 's@//.*archive.ubuntu.com@//mirrors.ustc.edu.cn@g' /etc/apt/sources.l
     sed -i 's/security.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list && \   
     apt-get update && \
     apt-get install -y --no-install-recommends bash ca-certificates git bash curl wget nano vim sudo && \
+    wget http://eoelab.org:1024/index.php/s/XHeP7K3ZAHPHymM/download/eoelab.org.crt && \
+    cp eoelab.org.crt /usr/local/share/ca-certificates/eoelab.org.crt && \
+    update-ca-certificates && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
