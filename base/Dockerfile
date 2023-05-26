@@ -2,7 +2,6 @@ FROM eoelab.org:1032/mirrored-sources/mirror-image-stacks/ubuntu:22.04
 
 LABEL maintainer="eoelab <eoelab@eoelab.org>"
 
-
 USER root
 ENV DEBIAN_FRONTEND noninteractive
 RUN sed -i 's@//.*archive.ubuntu.com@//mirrors.ustc.edu.cn@g' /etc/apt/sources.list && \

@@ -18,3 +18,16 @@ base-build:
       --cache-run-layers=true
       --cache-repo "eoelab.org:1032/build-image-stacks/coder-workspace-stacks/cache"
       --destination "eoelab.org:1032/build-image-stacks/coder-workspace-stacks/coder:base"
+code-server-build:
+  stage: build
+  needs: [base-build]
+  script:
+    - cd code-server
+    - /kaniko/executor
+      --context ./
+      --dockerfile "Dockerfile"
+      --cache=true
+      --cache-copy-layers=true
+      --cache-run-layers=true
+      --cache-repo "eoelab.org:1032/build-image-stacks/coder-workspace-stacks/cache"
+      --destination "eoelab.org:1032/build-image-stacks/coder-workspace-stacks/coder:code-server"
