@@ -30,11 +30,11 @@ apache tuna: https://mirrors.tuna.tsinghua.edu.cn/apache/
 对于很多自定义化的镜像注意查看，或者在项目内提issue  
 ### 当前构建镜像清单
 * base：基础镜像，包括基础的git bash curl wget nano vim sudo,并且配置信任我们本地自签名证书
-* code-server：提供gcc & gcc-c++ & make等C&CPP开发环境，并且安装code-server（https://github.com/coder/code-server）
+* code-server：安装code-server（https://github.com/coder/code-server）,对于语言支持在三级目录下
 ## 镜像依赖关系
 ```mermaid
 graph LR
-A(Base)-->B(code-server)
+A(Base)-->B(code-server)-->C(CPP)
 ```  
 ## 必要的授权说明
 对于派生自coder团队的代码，我们添加了如下的版权声明，我们保留并且支持coder开发团队版权

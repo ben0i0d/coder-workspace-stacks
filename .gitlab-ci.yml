@@ -30,4 +30,17 @@ code-server-build:
       --cache-copy-layers=true
       --cache-run-layers=true
       --cache-repo "eoelab.org:1032/build-image-stacks/coder-workspace-stacks/cache"
-      --destination "eoelab.org:1032/build-image-stacks/coder-workspace-stacks/coder:code-server"
+      --destination "eoelab.org:1032/build-image-stacks/coder-workspace-stacks/coder:cs"
+cs-Cpp-build:
+  stage: build
+  needs: [code-server-build]
+  script:
+    - cd code-server/cpp
+    - /kaniko/executor
+      --context ./
+      --dockerfile "Dockerfile"
+      --cache=true
+      --cache-copy-layers=true
+      --cache-run-layers=true
+      --cache-repo "eoelab.org:1032/build-image-stacks/coder-workspace-stacks/cache"
+      --destination "eoelab.org:1032/build-image-stacks/coder-workspace-stacks/coder:cs-cpp"
