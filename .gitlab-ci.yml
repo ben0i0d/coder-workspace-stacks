@@ -5,7 +5,7 @@ image:
 before_script:
   - wget http://eoelab.org:1024/index.php/s/XHeP7K3ZAHPHymM/download/eoelab.org.crt
   - mv eoelab.org.crt /kaniko/ssl/certs/additional-ca-cert-bundle.crt
-base-build:
+Base-build:
   stage: build
   needs: []
   script:
@@ -18,9 +18,9 @@ base-build:
       --cache-run-layers=true
       --cache-repo "eoelab.org:1032/build-image-stacks/coder-workspace-stacks/cache"
       --destination "eoelab.org:1032/build-image-stacks/coder-workspace-stacks/coder:base"
-code-server-build:
+Code-Server-build:
   stage: build
-  needs: [base-build]
+  needs: [Base-build]
   script:
     - cd code-server
     - /kaniko/executor
@@ -31,9 +31,9 @@ code-server-build:
       --cache-run-layers=true
       --cache-repo "eoelab.org:1032/build-image-stacks/coder-workspace-stacks/cache"
       --destination "eoelab.org:1032/build-image-stacks/coder-workspace-stacks/coder:cs"
-cs-Cpp-build:
+CS-Cpp-build:
   stage: build
-  needs: [code-server-build]
+  needs: [Code-Server-build]
   script:
     - cd code-server/cpp
     - /kaniko/executor
