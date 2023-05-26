@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN sed -i 's@//.*archive.ubuntu.com@//mirrors.ustc.edu.cn@g' /etc/apt/sources.list && \
     sed -i 's/security.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list && \   
     apt-get update && \
-    apt-get install -y --no-install-recommends bash ca-certificates curl git sudo && \
+    apt-get install -y --no-install-recommends bash ca-certificates git bash curl wget nano vim sudo && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
