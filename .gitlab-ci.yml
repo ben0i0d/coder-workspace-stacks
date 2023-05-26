@@ -17,4 +17,4 @@ base-build:
       --cache-copy-layers=true
       --cache-run-layers=true
       --cache-repo "eoelab.org:1032/build-image-stacks/coder-workspace-stacks/cache"
-      --destination "eoelab.org:1032/build-image-stacks/coder-workspace-stacks/jupyter:up-c"
+      --destination "eoelab.org:1032/build-image-stacks/coder-workspace-stacks/coder:base"
